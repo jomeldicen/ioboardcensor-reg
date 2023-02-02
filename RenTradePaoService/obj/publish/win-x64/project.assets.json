@@ -2824,11 +2824,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Development\\Github\\ioboardcensor\\RenTradePaoService\\RenTradePaoService.csproj",
+      "projectUniqueName": "D:\\Development\\Github\\ioboardcensor-ver1\\RenTradePaoService\\RenTradePaoService.csproj",
       "projectName": "RenTradePaoService",
-      "projectPath": "D:\\Development\\Github\\ioboardcensor\\RenTradePaoService\\RenTradePaoService.csproj",
+      "projectPath": "D:\\Development\\Github\\ioboardcensor-ver1\\RenTradePaoService\\RenTradePaoService.csproj",
       "packagesPath": "C:\\Users\\jpdicen\\.nuget\\packages\\",
-      "outputPath": "D:\\Development\\Github\\ioboardcensor\\RenTradePaoService\\obj\\publish\\win-x64\\",
+      "outputPath": "D:\\Development\\Github\\ioboardcensor-ver1\\RenTradePaoService\\obj\\publish\\win-x64\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"

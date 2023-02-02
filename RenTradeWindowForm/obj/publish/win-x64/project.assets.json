@@ -3231,11 +3231,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Development\\Github\\ioboardcensor\\RenTradeWindowForm\\RenTradeWindowForm.csproj",
+      "projectUniqueName": "D:\\Development\\Github\\ioboardcensor-ver1\\RenTradeWindowForm\\RenTradeWindowForm.csproj",
       "projectName": "RenTradeWindowForm",
-      "projectPath": "D:\\Development\\Github\\ioboardcensor\\RenTradeWindowForm\\RenTradeWindowForm.csproj",
+      "projectPath": "D:\\Development\\Github\\ioboardcensor-ver1\\RenTradeWindowForm\\RenTradeWindowForm.csproj",
       "packagesPath": "C:\\Users\\jpdicen\\.nuget\\packages\\",
-      "outputPath": "D:\\Development\\Github\\ioboardcensor\\RenTradeWindowForm\\obj\\publish\\win-x64\\",
+      "outputPath": "D:\\Development\\Github\\ioboardcensor-ver1\\RenTradeWindowForm\\obj\\publish\\win-x64\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
@@ -3256,8 +3256,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\Development\\Github\\ioboardcensor\\RenTradePaoService\\RenTradePaoService.csproj": {
-              "projectPath": "D:\\Development\\Github\\ioboardcensor\\RenTradePaoService\\RenTradePaoService.csproj"
+            "D:\\Development\\Github\\ioboardcensor-ver1\\RenTradePaoService\\RenTradePaoService.csproj": {
+              "projectPath": "D:\\Development\\Github\\ioboardcensor-ver1\\RenTradePaoService\\RenTradePaoService.csproj"
             }
           }
         }

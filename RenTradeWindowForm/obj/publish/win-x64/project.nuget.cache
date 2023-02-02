@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pPgNLuUjGosT74OihvlTvZoRRxtsoxO53OrYlgQnJd3CJkNKJApHmT6qN0iD93j4FrDRFCkDpseAAaQFMhUxkw==",
+  "dgSpecHash": "jqehBgCZH+73vqKmHSkob2R6zE7tt0SvvfIyvPAqo2jzXeLE97fEh9fTxGBi+q433T1ah6ohKVFwHeK/EzI/gw==",
   "success": true,
-  "projectFilePath": "D:\\Development\\Github\\ioboardcensor\\RenTradeWindowForm\\RenTradeWindowForm.csproj",
+  "projectFilePath": "D:\\Development\\Github\\ioboardcensor-ver1\\RenTradeWindowForm\\RenTradeWindowForm.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jpdicen\\.nuget\\packages\\experimental.system.messaging\\1.1.0\\experimental.system.messaging.1.1.0.nupkg.sha512",
     "C:\\Users\\jpdicen\\.nuget\\packages\\microsoft.extensions.configuration\\5.0.0\\microsoft.extensions.configuration.5.0.0.nupkg.sha512",

@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>dotnet-RenTradePaoService-0C292FF8-1DBF-4770-9AE0-A7A7BF08101F</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Experimental.System.Messaging" Version="1.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.26" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="3.1.26" />
+    <PackageReference Include="MySql.Data" Version="6.10.9" />
+    <PackageReference Include="Serilog.AspNetCore" Version="5.0.0" />
+    <PackageReference Include="System.IO.Ports" Version="6.0.0" />
+    <PackageReference Include="System.Security.Permissions" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ioBoardLib">
+      <HintPath>..\..\..\Projects\NET\RenTrade\DLL\ioBoardLib.dll</HintPath>
+    </Reference>
+    <Reference Include="LearCebuPAO_API">
+      <HintPath>..\..\..\Projects\NET\RenTrade\DLL\LearCebuPAO_API.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

@@ -247,18 +247,18 @@ namespace RenTradeWindowForm
             // lblBatchTarget
             // 
             this.lblBatchTarget.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblBatchTarget.Location = new System.Drawing.Point(220, 44);
+            this.lblBatchTarget.Location = new System.Drawing.Point(229, 44);
             this.lblBatchTarget.Name = "lblBatchTarget";
-            this.lblBatchTarget.Size = new System.Drawing.Size(50, 13);
+            this.lblBatchTarget.Size = new System.Drawing.Size(40, 13);
             this.lblBatchTarget.TabIndex = 7;
             this.lblBatchTarget.Text = "0";
             // 
             // lblDailyTarget
             // 
             this.lblDailyTarget.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblDailyTarget.Location = new System.Drawing.Point(220, 23);
+            this.lblDailyTarget.Location = new System.Drawing.Point(229, 23);
             this.lblDailyTarget.Name = "lblDailyTarget";
-            this.lblDailyTarget.Size = new System.Drawing.Size(50, 13);
+            this.lblDailyTarget.Size = new System.Drawing.Size(40, 13);
             this.lblDailyTarget.TabIndex = 6;
             this.lblDailyTarget.Text = "0";
             // 
@@ -266,9 +266,9 @@ namespace RenTradeWindowForm
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(135, 44);
+            this.label7.Location = new System.Drawing.Point(145, 44);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(70, 13);
+            this.label7.Size = new System.Drawing.Size(69, 13);
             this.label7.TabIndex = 5;
             this.label7.Text = "Bundle Size:";
             // 
@@ -276,7 +276,7 @@ namespace RenTradeWindowForm
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(135, 23);
+            this.label6.Location = new System.Drawing.Point(145, 23);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(87, 13);
             this.label6.TabIndex = 4;
@@ -287,7 +287,7 @@ namespace RenTradeWindowForm
             this.lblOrderNos.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblOrderNos.Location = new System.Drawing.Point(68, 44);
             this.lblOrderNos.Name = "lblOrderNos";
-            this.lblOrderNos.Size = new System.Drawing.Size(60, 13);
+            this.lblOrderNos.Size = new System.Drawing.Size(75, 13);
             this.lblOrderNos.TabIndex = 3;
             this.lblOrderNos.Text = "n/a";
             // 
@@ -296,7 +296,7 @@ namespace RenTradeWindowForm
             this.lblLeadSet.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblLeadSet.Location = new System.Drawing.Point(68, 23);
             this.lblLeadSet.Name = "lblLeadSet";
-            this.lblLeadSet.Size = new System.Drawing.Size(60, 13);
+            this.lblLeadSet.Size = new System.Drawing.Size(75, 13);
             this.lblLeadSet.TabIndex = 2;
             this.lblLeadSet.Text = "n/a";
             // 

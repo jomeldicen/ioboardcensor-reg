@@ -766,3 +766,5 @@ D:\Development\Github\ioboardcensor-ver1\RenTradePaoService\obj\Release\netcorea
 D:\Development\Github\ioboardcensor-ver1\RenTradePaoService\obj\Release\netcoreapp3.1\win-x64\RenTradePaoService.dll
 D:\Development\Github\ioboardcensor-ver1\RenTradePaoService\obj\Release\netcoreapp3.1\win-x64\RenTradePaoService.pdb
 D:\Development\Github\ioboardcensor-ver1\RenTradePaoService\obj\Release\netcoreapp3.1\win-x64\RenTradePaoService.genruntimeconfig.cache
+D:\Development\Github\ioboardcensor-ver1\RenTradePaoService\bin\Release\netcoreapp3.1\win-x64\LearCebuPAO_API.pdb
+D:\Development\Github\ioboardcensor-ver1\RenTradePaoService\bin\Release\netcoreapp3.1\win-x64\LearCebuPAO_API.xml

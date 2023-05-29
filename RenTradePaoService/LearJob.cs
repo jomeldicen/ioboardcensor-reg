@@ -14,6 +14,7 @@ namespace RenTradeWindowService
         private RegistryDriver registry;
 
         public string JobInfo { get; private set; }
+        private int BOMcount { get; set; }
         public string OrderNumber { get; private set; }
         public string LeadSet { get; private set; }
         public int JobQty { get; private set; }
@@ -43,7 +44,10 @@ namespace RenTradeWindowService
 
                 // Production Mode
                 if (_environmentMode == "PRD")
+                {
                     JobInfo = OLearCebuPAOapi.GetJobStarted(_machineName);
+                    //BOMcount = OLearCebuPAOapi.GetBOMcount()
+                }
 
                 string[] stringSeparators = new string[] { ":::" };
                 if (!String.IsNullOrEmpty(JobInfo) && JobInfo != "ErrorDB")
@@ -97,19 +101,43 @@ namespace RenTradeWindowService
             }
         }
 
+        public int BOMCount(string BOMValue)
+        {
+            string BOMValueTrimP = BOMValue;
+            string sBOMitems = "";
+            int sBOMCount = 0;
+
+            // Production Environment Mode
+            if (_environmentMode == "PRD")
+            {
+                if (BOMValue.Length > 0)
+                    BOMValueTrimP = (BOMValue[0] == 'P') ? BOMValue.Remove(0, 1) : BOMValue;
+
+                sBOMCount = OLearCebuPAOapi.GetBOMcount(LeadSet, BOMValueTrimP, ref sBOMitems);
+            }
+
+            return sBOMCount;
+        }
+
         public bool IsBOMExist(string BOMValue)
         {
+            string BOMValueTrimP = BOMValue;
             string sBOMitems = "";
             bool isBOMexist = false;
             string[] stringSeparators = new string[] { ":::" };
 
             // Production Environment Mode
-            if (_environmentMode == "PRD") 
-                isBOMexist = OLearCebuPAOapi.DoesBOMexist(LeadSet, BOMValue, ref sBOMitems);
+            if (_environmentMode == "PRD")
+            {
+                if (BOMValue.Length > 0)
+                    BOMValueTrimP = (BOMValue[0] == 'P') ? BOMValue.Remove(0, 1) : BOMValue;
+                isBOMexist = OLearCebuPAOapi.DoesBOMexist(LeadSet, BOMValueTrimP, ref sBOMitems);
+            }
 
+            registry.TextLogger(this.OrderNumber, DateTimeOffset.Now + " - BOMValue: " + BOMValue + ", BOMExist: " + isBOMexist + ", sBOMItems: " + sBOMitems + " EnvironmentMode: " + _environmentMode);
             string[] tokens = sBOMitems.Split(stringSeparators, StringSplitOptions.None);
 
-            if (isBOMexist || tokens.Contains(BOMValue))
+            if (isBOMexist || tokens.Contains(BOMValueTrimP))
                 return true;
 
             return false;

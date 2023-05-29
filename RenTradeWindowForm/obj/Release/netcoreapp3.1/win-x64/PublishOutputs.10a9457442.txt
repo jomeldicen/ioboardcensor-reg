@@ -276,8 +276,9 @@ D:\Development\Published\paoboard-ver1\Dashboard\vcruntime140_cor3.dll
 D:\Development\Published\paoboard-ver1\Dashboard\wpfgfx_cor3.dll
 D:\Development\Published\paoboard-ver1\Dashboard\aspnetcorev2_inprocess.dll
 D:\Development\Published\paoboard-ver1\Dashboard\RenTradePaoService.pdb
+D:\Development\Published\paoboard-ver1\Dashboard\LearCebuPAO_API.pdb
+D:\Development\Published\paoboard-ver1\Dashboard\LearCebuPAO_API.xml
 D:\Development\Published\paoboard-ver1\Dashboard\FoxLearn.License.dll
-D:\Development\Published\paoboard-ver1\Dashboard\LearCebuPAO_API.dll
 D:\Development\Published\paoboard-ver1\Dashboard\ioBoardLib.dll
 D:\Development\Published\paoboard-ver1\Dashboard\Microsoft.CSharp.dll
 D:\Development\Published\paoboard-ver1\Dashboard\Microsoft.VisualBasic.Core.dll
@@ -632,4 +633,5 @@ D:\Development\Published\paoboard-ver1\Dashboard\System.ServiceProcess.ServiceCo
 D:\Development\Published\paoboard-ver1\Dashboard\System.Text.Json.dll
 D:\Development\Published\paoboard-ver1\Dashboard\System.Windows.Extensions.dll
 D:\Development\Published\paoboard-ver1\Dashboard\RenTradePaoService.dll
+D:\Development\Published\paoboard-ver1\Dashboard\LearCebuPAO_API.dll
 D:\Development\Published\paoboard-ver1\Dashboard\RenTradeWindowForm.dll

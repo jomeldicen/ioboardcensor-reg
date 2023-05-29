@@ -200,3 +200,5 @@ D:\Development\Github\ioboardcensor-ver1\RenTradeWindowForm\obj\Release\netcorea
 D:\Development\Github\ioboardcensor-ver1\RenTradeWindowForm\obj\Release\netcoreapp3.1\RenTradeWindowForm.dll
 D:\Development\Github\ioboardcensor-ver1\RenTradeWindowForm\obj\Release\netcoreapp3.1\RenTradeWindowForm.pdb
 D:\Development\Github\ioboardcensor-ver1\RenTradeWindowForm\obj\Release\netcoreapp3.1\RenTradeWindowForm.genruntimeconfig.cache
+D:\Development\Github\ioboardcensor-ver1\RenTradeWindowForm\bin\Release\netcoreapp3.1\LearCebuPAO_API.pdb
+D:\Development\Github\ioboardcensor-ver1\RenTradeWindowForm\bin\Release\netcoreapp3.1\LearCebuPAO_API.xml

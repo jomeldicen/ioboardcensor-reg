@@ -20,7 +20,7 @@
       <HintPath>..\..\..\Projects\NET\RenTrade\DLL\ioBoardLib.dll</HintPath>
     </Reference>
     <Reference Include="LearCebuPAO_API">
-      <HintPath>..\..\..\Projects\NET\RenTrade\DLL\LearCebuPAO_API.dll</HintPath>
+      <HintPath>..\..\..\Projects\NET\RenTrade\LearCebuPAO_API_v10March2023\LearCebuPAO_API.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>

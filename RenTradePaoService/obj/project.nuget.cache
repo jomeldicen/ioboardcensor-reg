@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "m2Hc58J3AnDX83oYm06Uum2ryQ+zcM1wLNNM+pgJKrHoIDSaIN8LjjzsmU6RSabL1NY/tAAIqkXvaaj326oN+g==",
+  "dgSpecHash": "GQhko4yfQnZFWfZFO/l5KPtMPRkO83c0ATZrmIi6B2ko6vY7CCY9jIma9Z+sO5eCH8TMj0+dwho/vvzLnhwy8A==",
   "success": true,
   "projectFilePath": "D:\\Development\\Github\\ioboardcensor-ver1\\RenTradePaoService\\RenTradePaoService.csproj",
   "expectedPackageFiles": [
@@ -63,10 +63,7 @@
     "C:\\Users\\jpdicen\\.nuget\\packages\\system.serviceprocess.servicecontroller\\4.7.0\\system.serviceprocess.servicecontroller.4.7.0.nupkg.sha512",
     "C:\\Users\\jpdicen\\.nuget\\packages\\system.text.encoding.codepages\\4.4.0\\system.text.encoding.codepages.4.4.0.nupkg.sha512",
     "C:\\Users\\jpdicen\\.nuget\\packages\\system.text.json\\4.6.0\\system.text.json.4.6.0.nupkg.sha512",
-    "C:\\Users\\jpdicen\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
-    "C:\\Users\\jpdicen\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\3.1.31\\microsoft.netcore.app.runtime.win-x64.3.1.31.nupkg.sha512",
-    "C:\\Users\\jpdicen\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\3.1.31\\microsoft.windowsdesktop.app.runtime.win-x64.3.1.31.nupkg.sha512",
-    "C:\\Users\\jpdicen\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\3.1.31\\microsoft.aspnetcore.app.runtime.win-x64.3.1.31.nupkg.sha512"
+    "C:\\Users\\jpdicen\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

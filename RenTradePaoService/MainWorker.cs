@@ -25,6 +25,7 @@ namespace RenTradeWindowService
 
         private readonly string _machineName;
         private readonly string _machineType;
+        private readonly string _machineClass;
         private readonly string _environmentMode;
         private readonly string _defaultMsgQueName;
         private readonly string _logPath;
@@ -33,8 +34,14 @@ namespace RenTradeWindowService
         private readonly int _mgQueueWaitingTime;
 
         private readonly int _firstPcsInitCount;        // test pcs
+        private readonly int _firstPcsInitCount1;        // calipher pcs
+        private readonly int _firstPcsInitCount2;        // pull test pcs
         private readonly int _midPcsInitCount;          // quota pcs
+        private readonly int _midPcsInitCount1;          // quota pcs
+        private readonly int _midPcsInitCount2;          // quota pcs
         private readonly int _lastPcsInitCount;         // prod pcs
+        private readonly int _lastPcsInitCount1;         // prod pcs
+        private readonly int _lastPcsInitCount2;         // prod pcs
         private readonly int _quotaInitCount;
         private readonly int _wireTwistInitCount;
         private readonly int _wireTwistCycleCount;
@@ -61,7 +68,8 @@ namespace RenTradeWindowService
 
             _environmentMode = _options.Value.EnvironmentMode;
             _machineName = String.IsNullOrEmpty(_options.Value.MachineName)? Environment.MachineName : _options.Value.MachineName;
-            _machineType = String.IsNullOrEmpty(_options.Value.MachineType)? "RG" : _options.Value.MachineType;
+            _machineType = String.IsNullOrEmpty(_options.Value.MachineType) ? "RG" : _options.Value.MachineType;
+            _machineClass = String.IsNullOrEmpty(_options.Value.MachineClass) ? "MT" : _options.Value.MachineClass;
             _defaultMsgQueName = _options.Value.MessageQueueName;
             _logPath = _options.Value.LogPath;
             _dashboardFormPath = _options.Value.DashboardFormPath;
@@ -69,8 +77,14 @@ namespace RenTradeWindowService
             _mgQueueWaitingTime = _options.Value.MsgQueueWaitingTime;
 
             _firstPcsInitCount = _options.Value.FirstPcsInitCount;
+            _firstPcsInitCount1 = _options.Value.FirstPcsInitCount1;
+            _firstPcsInitCount2 = _options.Value.FirstPcsInitCount2;
             _midPcsInitCount = _options.Value.MidPcsInitCount;
+            _midPcsInitCount1 = _options.Value.MidPcsInitCount1;
+            _midPcsInitCount2 = _options.Value.MidPcsInitCount2;
             _lastPcsInitCount = _options.Value.LastPcsInitCount;
+            _lastPcsInitCount1 = _options.Value.LastPcsInitCount1;
+            _lastPcsInitCount2 = _options.Value.LastPcsInitCount2;
             _quotaInitCount = _options.Value.QuotaInitCount;
             _wireTwistInitCount = _options.Value.WireTwistInitCount;
             _wireTwistCycleCount = _options.Value.WireTwistCycleCount;
@@ -181,6 +195,7 @@ namespace RenTradeWindowService
                         // Force Terminate Job 
                         if (registry.ProcessStage == "F2")
                         {
+                            registry.WriteRegistry("pedalStatus", "False");
                             learjob.JobFinished();
                             registry.ReadRegistry();
                             goto proceed;
@@ -238,7 +253,7 @@ namespace RenTradeWindowService
                                         {
                                         
                                             // for caliper input
-                                            if (registry.TestCounter == _firstPcsInitCount && registry.ProcessStage == "A4B")
+                                            if (registry.TestCounter == _firstPcsInitCount1 && registry.ProcessStage == "A4B")
                                             {
                                                 registry.WriteRegistry("testCounter", "0");
                                                 registry.WriteRegistry("processStage", "A5A");
@@ -246,7 +261,7 @@ namespace RenTradeWindowService
                                             }
 
                                             // for pull test input
-                                            if (registry.TestCounter == _firstPcsInitCount && registry.ProcessStage == "A5B")
+                                            if (registry.TestCounter == _firstPcsInitCount2 && registry.ProcessStage == "A5B")
                                             {
                                                 registry.WriteRegistry("processStage", "A8");
                                                 goto proceed;
@@ -291,6 +306,7 @@ namespace RenTradeWindowService
                             // Finished Job Production
                             if(registry.ProcessStage == "F1")
                             {
+                                registry.WriteRegistry("pedalStatus", "False");
                                 learjob.JobFinished();
                                 registry.ReadRegistry();
                                 goto proceed;
@@ -341,7 +357,7 @@ namespace RenTradeWindowService
                                         {
                                         
                                             // for caliper input
-                                            if (registry.TestCounter == _midPcsInitCount && registry.ProcessStage == "C4B")
+                                            if (registry.TestCounter == _midPcsInitCount1 && registry.ProcessStage == "C4B")
                                             {
                                                 registry.WriteRegistry("testCounter", "0");
                                                 registry.WriteRegistry("processStage", "C5A");
@@ -349,7 +365,7 @@ namespace RenTradeWindowService
                                             }
 
                                             // for pull test input
-                                            if (registry.TestCounter == _midPcsInitCount && registry.ProcessStage == "C5B")
+                                            if (registry.TestCounter == _midPcsInitCount2 && registry.ProcessStage == "C5B")
                                             {
                                                 registry.WriteRegistry("processStage", "C8");
                                                 goto proceed;
@@ -380,20 +396,25 @@ namespace RenTradeWindowService
                             }
                             //*********************** End Daily Quota Section ***********************//
 
+                            int materialCount = 1;
+
+                            if(_machineClass == "MT")
+                                materialCount = Convert.ToInt16(registry.MaterialCount);
+
                             // check if pedal hit counter exceeds the production quantity
-                            int bundleSize = learjob.BundleSize;
+                            int jobqty = learjob.JobQty * materialCount;
 
                             if(_machineType == "RG")
                             {
-                                if (registry.ProcessCounter >= bundleSize)
+                                if (registry.ProcessCounter >= jobqty)
                                 {
                                     //*********************** Start Production Section ***********************//
                                     // confirmation message if last pcs counter is equal to the nos of initial config.
-                                    if (registry.ProcessCounter >= bundleSize && registry.ProcessStage == "B1")
+                                    if (registry.ProcessCounter >= jobqty && registry.ProcessStage == "B1")
                                     {
                                         registry.WriteRegistry("processStage", "B2");
                                         registry.WriteRegistry("pedalStatus", "False");
-                                        registry.WriteRegistry("processCounter", bundleSize.ToString());
+                                        registry.WriteRegistry("processCounter", jobqty.ToString());
 
                                         goto proceed;
                                     }
@@ -409,7 +430,7 @@ namespace RenTradeWindowService
 
                                     // Regular Machine
                                     // confirmation message if last pcs counter is equal to the nos of initial config.
-                                    if (registry.ProcessCounter == bundleSize && (registry.ProcessStage == "B4B" || registry.ProcessStage == "B5B" || registry.ProcessStage == "B6B"))
+                                    if (registry.ProcessCounter == jobqty && (registry.ProcessStage == "B4B" || registry.ProcessStage == "B5B" || registry.ProcessStage == "B6B"))
                                     {
                                         // check if pull test counter is equal to last pcs count
                                         lastpcsLabelCounter:
@@ -417,7 +438,7 @@ namespace RenTradeWindowService
                                         {
 
                                             // for caliper input
-                                            if (registry.TestCounter == _lastPcsInitCount && registry.ProcessStage == "B4B")
+                                            if (registry.TestCounter == _lastPcsInitCount1 && registry.ProcessStage == "B4B")
                                             {
                                                 registry.WriteRegistry("testCounter", "0");
                                                 registry.WriteRegistry("processStage", "B5A");
@@ -426,7 +447,7 @@ namespace RenTradeWindowService
                                             }
 
                                             // for pull test input
-                                            if (registry.TestCounter == _lastPcsInitCount && registry.ProcessStage == "B5B")
+                                            if (registry.TestCounter == _lastPcsInitCount2 && registry.ProcessStage == "B5B")
                                             {
                                                 registry.WriteRegistry("processStage", "B8");
 
@@ -459,17 +480,17 @@ namespace RenTradeWindowService
                             } 
                             else // machine time WT
                             {
-                                int cycleCount = (_wireTwistInitCount > 0) ? learjob.BundleSize / _wireTwistInitCount : 0;
-                                bundleSize = (learjob.BundleSize % _wireTwistInitCount == 0)? cycleCount - _lastPcsInitCount : cycleCount;
-                                if (registry.ProcessCounter >= bundleSize)
+                                int cycleCount = (_wireTwistInitCount > 0) ? learjob.JobQty / _wireTwistInitCount : 0;
+                                jobqty = (learjob.JobQty % _wireTwistInitCount == 0)? cycleCount - _lastPcsInitCount : cycleCount;
+                                if (registry.ProcessCounter >= jobqty)
                                 {
                                     //*********************** Start Production Section ***********************//
                                     // confirmation message if last pcs counter is equal to the nos of initial config.
-                                    if (registry.ProcessCounter >= bundleSize && registry.ProcessStage == "B1")
+                                    if (registry.ProcessCounter >= jobqty && registry.ProcessStage == "B1")
                                     {
                                         registry.WriteRegistry("processStage", "B2");
                                         registry.WriteRegistry("pedalStatus", "False");
-                                        registry.WriteRegistry("processCounter", bundleSize.ToString());
+                                        registry.WriteRegistry("processCounter", jobqty.ToString());
 
                                         goto proceed;
                                     }
@@ -484,7 +505,7 @@ namespace RenTradeWindowService
                                     }
 
                                     // confirmation message if last pcs counter is equal to the nos of initial config.
-                                    if (registry.ProcessCounter == bundleSize + _lastPcsInitCount && (registry.ProcessStage == "B6B"))
+                                    if (registry.ProcessCounter == jobqty + _lastPcsInitCount && (registry.ProcessStage == "B6B"))
                                     {
                                         // for wire twist input
                                         if (registry.TestCounter == _wireTwistInitCount && registry.ProcessStage == "B6B")
@@ -723,6 +744,11 @@ namespace RenTradeWindowService
                     // Get Lear Job Information
                     learjob = new LearJob(_options);
 
+                    int materialCount = 1;
+
+                    if (_machineClass == "MT")
+                        materialCount = Convert.ToInt16(registry.MaterialCount);
+
                     // Read Input 0 set flag to 1
                     if (!ReadIOStatus("I", 0))
                     {
@@ -730,10 +756,10 @@ namespace RenTradeWindowService
                         if (process.Contains(registry.ProcessStage))
                         {
                             // validate if test counter is equal to last pcs then exit counter
-                            if (registry.ProcessCounter == learjob.BundleSize && registry.TestCounter == _lastPcsInitCount && registry.ProcessStage == "B3") return false;
+                            if (registry.ProcessCounter == learjob.JobQty * materialCount && registry.TestCounter == _lastPcsInitCount && registry.ProcessStage == "B3") return false;
 
                             // validate if test counter is equal to last pcs then exit counter
-                            if (registry.ProcessCounter == learjob.BundleSize && registry.TestCounter == _midPcsInitCount && registry.ProcessStage == "C3") return false;
+                            if (registry.ProcessCounter == learjob.JobQty * materialCount && registry.TestCounter == _midPcsInitCount && registry.ProcessStage == "C3") return false;
 
                             if(_machineType == "RG")
                             {
@@ -762,7 +788,8 @@ namespace RenTradeWindowService
                                     }
                                 }
                             }
-                        } else
+                        } 
+                        else
                         {
                             if (registry.IsProd)
                             {
@@ -773,7 +800,7 @@ namespace RenTradeWindowService
                                     if (registry.CycleCounter >= this._wireTwistCycleCount - 1 && (registry.ProcessStage == "B1" || registry.ProcessStage == "B2"))
                                     {
                                         // confirmation message if last pcs counter is equal to the nos of initial config.
-                                        if (registry.ProcessCounter == learjob.BundleSize) return false;
+                                        if (registry.ProcessCounter == learjob.JobQty) return false;
                                         else
                                         {
                                             registry.ProcessCounter++;
@@ -797,7 +824,7 @@ namespace RenTradeWindowService
                                 else
                                 {
                                     // confirmation message if last pcs counter is equal to the nos of initial config.
-                                    if (registry.ProcessCounter == learjob.BundleSize && (registry.ProcessStage == "B1" || registry.ProcessStage == "B2")) return false;
+                                    if (registry.ProcessCounter == learjob.JobQty * materialCount && (registry.ProcessStage == "B1" || registry.ProcessStage == "B2")) return false;
                                     else
                                     {
                                         registry.ProcessCounter++;

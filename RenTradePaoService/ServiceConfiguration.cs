@@ -11,6 +11,7 @@ namespace RenTradeWindowService
         public string EnvironmentMode { get; set; }
         public string MachineName { get; set; }
         public string MachineType { get; set; }
+        public string MachineClass { get; set; }
         public string LogPath { get; set; }
         public string DashboardFormPath { get; set; }
         public string MessageQueueName { get; set; }
@@ -25,9 +26,15 @@ namespace RenTradeWindowService
         public string Parity { get; set; }
         public int DataBits { get; set; }
         public string StopBits { get; set; }
-        public int FirstPcsInitCount { get; set; }
+        public int FirstPcsInitCount { get; set; } // test pcs count
+        public int FirstPcsInitCount1 { get; set; } // caliper count
+        public int FirstPcsInitCount2 { get; set; } // pull test count
         public int MidPcsInitCount { get; set; }
+        public int MidPcsInitCount1 { get; set; }
+        public int MidPcsInitCount2 { get; set; }
         public int LastPcsInitCount { get; set; }
+        public int LastPcsInitCount1 { get; set; }
+        public int LastPcsInitCount2 { get; set; }
         public int QuotaInitCount { get; set; }
         public int WireTwistInitCount { get; set; }
         public int WireTwistCycleCount { get; set; }

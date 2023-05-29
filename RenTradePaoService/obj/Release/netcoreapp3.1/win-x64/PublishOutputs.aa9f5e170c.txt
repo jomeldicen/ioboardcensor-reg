@@ -58,8 +58,9 @@ D:\Development\Published\paoboard-ver1\Service\mscorrc.debug.dll
 D:\Development\Published\paoboard-ver1\Service\mscorrc.dll
 D:\Development\Published\paoboard-ver1\Service\ucrtbase.dll
 D:\Development\Published\paoboard-ver1\Service\aspnetcorev2_inprocess.dll
+D:\Development\Published\paoboard-ver1\Service\LearCebuPAO_API.pdb
+D:\Development\Published\paoboard-ver1\Service\LearCebuPAO_API.xml
 D:\Development\Published\paoboard-ver1\Service\ioBoardLib.dll
-D:\Development\Published\paoboard-ver1\Service\LearCebuPAO_API.dll
 D:\Development\Published\paoboard-ver1\Service\Microsoft.CSharp.dll
 D:\Development\Published\paoboard-ver1\Service\Microsoft.VisualBasic.Core.dll
 D:\Development\Published\paoboard-ver1\Service\Microsoft.VisualBasic.dll
@@ -372,4 +373,5 @@ D:\Development\Published\paoboard-ver1\Service\System.Security.Permissions.dll
 D:\Development\Published\paoboard-ver1\Service\System.Security.Principal.Windows.dll
 D:\Development\Published\paoboard-ver1\Service\System.ServiceProcess.ServiceController.dll
 D:\Development\Published\paoboard-ver1\Service\System.Windows.Extensions.dll
+D:\Development\Published\paoboard-ver1\Service\LearCebuPAO_API.dll
 D:\Development\Published\paoboard-ver1\Service\RenTradePaoService.dll

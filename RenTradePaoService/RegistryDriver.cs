@@ -29,6 +29,8 @@ namespace RenTradeWindowService
         public string IOBoardStatus { get; private set; }
         public string OldOrderNos { get; private set; }
         public string JobInfo { get; private set; }
+        public string MaterialNos { get; private set; }
+        public string MaterialCount { get; private set; }
 
         private readonly string _logPath;
 
@@ -66,6 +68,8 @@ namespace RenTradeWindowService
                 key.SetValue("reelStatus", "True");             // true means reel material is detected
 
                 key.SetValue("ioBoardStatus", "");              // IO Board Status
+                key.SetValue("materialNos", "");                // Material Nos
+                key.SetValue("materialCount", "0");              // Material Count
 
                 key.Close();
             }
@@ -97,6 +101,8 @@ namespace RenTradeWindowService
                     this.IOBoardStatus = key.GetValue("ioBoardStatus").ToString();
                     this.OldOrderNos = key.GetValue("oldOrderNos").ToString();
                     this.JobInfo = key.GetValue("jobInfo").ToString();
+                    this.MaterialNos = key.GetValue("materialNos").ToString();
+                    this.MaterialCount = key.GetValue("materialCount").ToString();
 
                     key.Close();
                 }
@@ -127,6 +133,8 @@ namespace RenTradeWindowService
         public void ResetRegistry()
         {
             this.WriteRegistry("jobInfo", "");
+            this.WriteRegistry("materialNos", "");
+            this.WriteRegistry("materialCount", "0");
             this.WriteRegistry("pedalFlag", "0");
             this.WriteRegistry("isProd", "False");
             this.WriteRegistry("pedalStatus", "False");

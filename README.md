@@ -1,2 +1,2 @@
 # ioboardcensor-wt
-IO Board Censor for Wire Twist
+IO Board Censor for Regular 
